@@ -6,7 +6,8 @@ program easyds;
 
 uses
   Vcl.Forms,
-  main in 'main.pas' {Form1};
+  main in 'main.pas' {mainForm},
+  about in 'about.pas' {aboutForm};
 
 {$R *.res}
 
@@ -14,6 +15,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.Title := 'EasyDS';
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TmainForm, mainForm);
+  Application.CreateForm(TaboutForm, aboutForm);
   Application.Run;
 end.
