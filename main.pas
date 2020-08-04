@@ -17,9 +17,8 @@ type
     selectserverfolder: TMenuItem;
     Help1: TMenuItem;
     About1: TMenuItem;
-    TabControl1: TTabControl;
-    mapBox: TComboBox;
     mapLabel: TLabel;
+    mapBox: TComboBox;
     port: TEdit;
     portLabel: TLabel;
     password: TEdit;

@@ -2,9 +2,10 @@ object mainForm: TmainForm
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = 'EasyDS'
   ClientHeight = 432
-  ClientWidth = 632
+  ClientWidth = 312
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -31,105 +32,92 @@ object mainForm: TmainForm
     ParentFont = False
     OnClick = creatorUrlClick
   end
+  object mapLabel: TLabel
+    Left = 159
+    Top = 49
+    Width = 24
+    Height = 13
+    Caption = 'Map:'
+  end
+  object portLabel: TLabel
+    Left = 8
+    Top = 49
+    Width = 59
+    Height = 13
+    Caption = 'Server port:'
+  end
+  object passwordLabel: TLabel
+    Left = 159
+    Top = 5
+    Width = 85
+    Height = 13
+    Caption = 'Server password:'
+  end
+  object serverNameLabel: TLabel
+    Left = 8
+    Top = 5
+    Width = 65
+    Height = 13
+    Caption = 'Server name:'
+  end
   object startButton: TButton
-    Left = 480
-    Top = 392
-    Width = 147
+    Left = 159
+    Top = 372
+    Width = 145
     Height = 33
     Caption = 'Start'
     TabOrder = 0
   end
   object openServerFolderButton: TButton
-    Left = 327
-    Top = 392
+    Left = 8
+    Top = 372
     Width = 147
     Height = 33
     Caption = 'Open Folder'
     TabOrder = 1
   end
-  object TabControl1: TTabControl
-    Left = 8
-    Top = 8
-    Width = 616
-    Height = 378
+  object mapBox: TComboBox
+    Left = 159
+    Top = 68
+    Width = 145
+    Height = 21
+    ItemIndex = 0
     TabOrder = 2
-    Tabs.Strings = (
-      'General'
-      'Game settings'
-      'Map manager'
-      'Misc')
-    TabIndex = 0
-    object mapLabel: TLabel
-      Left = 16
-      Top = 167
-      Width = 24
-      Height = 13
-      Caption = 'Map:'
-    end
-    object portLabel: TLabel
-      Left = 16
-      Top = 121
-      Width = 59
-      Height = 13
-      Caption = 'Server port:'
-    end
-    object passwordLabel: TLabel
-      Left = 16
-      Top = 75
-      Width = 85
-      Height = 13
-      Caption = 'Server password:'
-    end
-    object serverNameLabel: TLabel
-      Left = 16
-      Top = 29
-      Width = 65
-      Height = 13
-      Caption = 'Server name:'
-    end
-    object mapBox: TComboBox
-      Left = 16
-      Top = 186
-      Width = 145
-      Height = 21
-      ItemIndex = 0
-      TabOrder = 0
-      Text = 'map1'
-      Items.Strings = (
-        'map1'
-        'map2'
-        'map3'
-        'map4')
-    end
-    object port: TEdit
-      Left = 16
-      Top = 140
-      Width = 145
-      Height = 21
-      TabOrder = 1
-      Text = '27015'
-      TextHint = 'Port'
-    end
-    object password: TEdit
-      Left = 16
-      Top = 94
-      Width = 145
-      Height = 21
-      TabOrder = 2
-      TextHint = 'Password'
-    end
-    object Edit1: TEdit
-      Left = 16
-      Top = 48
-      Width = 145
-      Height = 21
-      Hint = 'Server name'
-      ParentShowHint = False
-      ShowHint = True
-      TabOrder = 3
-      Text = 'Counter-Strike Server'
-      TextHint = 'Server name'
-    end
+    Text = 'map1'
+    Items.Strings = (
+      'map1'
+      'map2'
+      'map3'
+      'map4')
+  end
+  object port: TEdit
+    Left = 8
+    Top = 68
+    Width = 145
+    Height = 21
+    TabOrder = 3
+    Text = '27015'
+    TextHint = 'Port'
+  end
+  object password: TEdit
+    Left = 159
+    Top = 24
+    Width = 145
+    Height = 21
+    TabOrder = 4
+    TextHint = 'Password'
+  end
+  object Edit1: TEdit
+    Left = 8
+    Top = 24
+    Width = 145
+    Height = 21
+    Hint = 'Server name'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+    Text = 'Counter-Strike Server'
+    TextHint = 'Server name'
   end
   object mainMenu: TMainMenu
     Left = 592
