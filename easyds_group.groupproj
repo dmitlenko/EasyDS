@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E53BCA2B-4ED9-4D38-9DA8-5873C38E5333}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="easyds.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="easyds">
+        <MSBuild Projects="easyds.dproj"/>
+    </Target>
+    <Target Name="easyds:Clean">
+        <MSBuild Projects="easyds.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="easyds:Make">
+        <MSBuild Projects="easyds.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="easyds"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="easyds:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="easyds:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
