@@ -1,17 +1,16 @@
-unit about;
+unit configure;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
 
 type
-  TaboutForm = class(TForm)
-    line1: TLabel;
-    Label1: TLabel;
-    version: TLabel;
-    creatorUrl: TLabel;
+  TconfigureForm = class(TForm)
+    startButton: TButton;
+    serverFolder: TEdit;
+    chooseServerFolder: TButton;
   private
     { Private declarations }
   public
@@ -19,7 +18,7 @@ type
   end;
 
 var
-  aboutForm: TaboutForm;
+  configureForm: TconfigureForm;
 
 implementation
 
