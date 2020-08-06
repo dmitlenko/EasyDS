@@ -71,6 +71,7 @@ object mainForm: TmainForm
     Height = 33
     Caption = 'Start'
     TabOrder = 0
+    OnClick = startButtonClick
   end
   object openServerFolderButton: TButton
     Left = 8
@@ -79,6 +80,7 @@ object mainForm: TmainForm
     Height = 33
     Caption = 'Open Folder'
     TabOrder = 1
+    OnClick = openServerFolderButtonClick
   end
   object port: TEdit
     Left = 8
@@ -193,20 +195,18 @@ object mainForm: TmainForm
       Width = 272
       Height = 21
       Style = csDropDownList
-      ItemIndex = 0
       TabOrder = 1
-      Text = 'Classic Casual'
       Items.Strings = (
-        'Classic Casual'
-        'Classic Competitive'
+        'Casual'
+        'Competitive'
+        'Wingman'
         'Armsrace'
         'Demolition'
         'Deathmatch'
-        'Training'
-        'Cooperative'
-        'Wingman'
-        'Danger Zone'
-        'Custom')
+        'Custom'
+        'Guardian'
+        'Co-op Strike'
+        'Danger Zone')
     end
     object maxPlayers: TEdit
       Left = 12
@@ -245,16 +245,21 @@ object mainForm: TmainForm
     end
   end
   object mainMenu: TMainMenu
-    Left = 592
+    Left = 280
     Top = 8
     object options: TMenuItem
       Caption = 'Options'
       object selectserverfolder: TMenuItem
         Caption = 'Select server folder'
+        OnClick = selectserverfolderClick
       end
     end
     object Help1: TMenuItem
       Caption = 'Help'
+      object Githubpage1: TMenuItem
+        Caption = 'Github page'
+        OnClick = Githubpage1Click
+      end
       object About1: TMenuItem
         Caption = 'About'
         OnClick = About1Click

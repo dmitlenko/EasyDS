@@ -8,7 +8,8 @@ uses
   Vcl.Forms,
   main in 'main.pas' {mainForm},
   about in 'about.pas' {aboutForm},
-  configure in 'configure.pas' {configureForm};
+  Vcl.Themes,
+  Vcl.Styles;
 
 {$R *.res}
 
@@ -18,6 +19,5 @@ begin
   Application.Title := 'EasyDS';
   Application.CreateForm(TmainForm, mainForm);
   Application.CreateForm(TaboutForm, aboutForm);
-  Application.CreateForm(TconfigureForm, configureForm);
   Application.Run;
 end.
