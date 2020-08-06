@@ -5,7 +5,7 @@
         <FrameworkType>VCL</FrameworkType>
         <MainSource>easyds.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -126,8 +126,12 @@
     </PropertyGroup>
     <Import Project="C:\Users\ACER\Desktop\release.optset" Condition="'$(Cfg_2_Win64)'!='' And Exists('C:\Users\ACER\Desktop\release.optset')"/>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
-        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
-        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_MajorVer>0</VerInfo_MajorVer>
+        <VerInfo_Build>1</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=dmitlenko;FileDescription=$(MSBuildProjectName);FileVersion=0.0.0.1;InternalName=;LegalCopyright=GNU General Public License;LegalTrademarks=;OriginalFilename=easyds.exe;ProgramID=com.dmitlenko.easyds;ProductName=$(MSBuildProjectName);ProductVersion=0.0.0.1;Comments=EasyDS</VerInfo_Keys>
+        <Icon_MainIcon>easy_ds.ico</Icon_MainIcon>
+        <UWP_DelphiLogo44>easy_ds.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>easy_ds.png</UWP_DelphiLogo150>
         <CfgDependentOn>C:\Users\ACER\Desktop\release.optset</CfgDependentOn>
     </PropertyGroup>
     <ItemGroup>
@@ -177,9 +181,10 @@
                 </RDP_Source_Files>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win64\Debug\easyds.rsm" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName="easy_ds.png" Configuration="Release" Class="UWP_DelphiLogo44">
                     <Platform Name="Win64">
-                        <RemoteName>easyds.rsm</RemoteName>
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo44x44.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -192,6 +197,12 @@
                 <DeployFile LocalName="Win32\Debug\easyds.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>easyds.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\easyds.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>easyds.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
