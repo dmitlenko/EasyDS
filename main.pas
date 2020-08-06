@@ -226,7 +226,7 @@ begin
   arguments := arguments + '+hostname "' + serverName.Text + '" -maxplayers_override ' + maxPlayers.Text + ' ';
   arguments := arguments + '-port ' + port.Text + ' ';
 
-  if not trim(password.Text) = '' then
+  if not(trim(password.Text) = '') then
   begin
      arguments := arguments + '+sv_password "' + password.Text + '" ';
   end;
