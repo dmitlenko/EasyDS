@@ -164,7 +164,7 @@ begin
     //maps scan
     scanMaps();
     //game settings
-    mapBox.ItemIndex := appINI.ReadInteger('Game','map',-1);
+    mapBox.ItemIndex := appINI.ReadInteger('Game','map',0);
     gamemodeBox.ItemIndex := appINI.ReadInteger('Game','mode',0);
     bots.Text := IntToStr(appINI.ReadInteger('Game','bots',0));
     botsSkill.ItemIndex := appINI.ReadInteger('Game','botsskill',0);
