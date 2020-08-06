@@ -23,8 +23,6 @@ type
     passwordLabel: TLabel;
     serverName: TEdit;
     serverNameLabel: TLabel;
-    enableRconCheck: TCheckBox;
-    rconPass: TEdit;
     lanOnly: TCheckBox;
     version: TLabel;
     gameSettings: TGroupBox;
@@ -39,10 +37,11 @@ type
     botsSkill: TComboBox;
     botsSkillLabel: TLabel;
     Githubpage1: TMenuItem;
+    tickRateLabel: TLabel;
+    tickRateBox: TComboBox;
     procedure creatorUrlClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure enableRconCheckClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure selectserverfolderClick(Sender: TObject);
     procedure Githubpage1Click(Sender: TObject);
@@ -62,7 +61,6 @@ var
 implementation
 
 {$R *.dfm}
-
 
 procedure TmainForm.scanMaps();
 var
@@ -85,11 +83,6 @@ begin
 end;
 
 
-procedure TmainForm.enableRconCheckClick(Sender: TObject);
-begin
-  rconPass.Enabled := enableRconCheck.Checked;
-end;
-
 procedure TmainForm.FormClose(Sender: TObject; var Action: TCloseAction);
 var
   appINI : TIniFile;
@@ -102,9 +95,10 @@ begin
     appINI.WriteString('Server','pass',password.Text);
     appINI.WriteString('Server','port',port.Text);
     appINI.WriteBool('Server','lanonly',lanOnly.Checked);
+    appINI.WriteInteger('Server','tickrate',tickRateBox.ItemIndex);
     //rcon settings
-    appINI.WriteBool('RCON','enabled',enableRconCheck.Checked);
-    appINI.WriteString('RCON','password',rconPass.Text);
+//    appINI.WriteBool('RCON','enabled',enableRconCheck.Checked);
+//    appINI.WriteString('RCON','password',rconPass.Text);
     //game settings
     appINI.WriteInteger('Game','map',mapBox.ItemIndex);
     appINI.WriteInteger('Game','mode',gamemodeBox.ItemIndex);
@@ -157,10 +151,11 @@ begin
     password.Text := appINI.ReadString('Server','pass','');
     port.Text := appINI.ReadString('Server','port','27015');
     lanOnly.Checked := appINI.ReadBool('Server','lanonly',True);
+    tickRateBox.ItemIndex := appINI.ReadInteger('Server','tickrate',1);
     //rcon settings
-    enableRconCheck.Checked := appINI.ReadBool('RCON','enabled',True);
-    rconPass.Enabled := enableRconCheck.Checked;
-    rconPass.Text := appINI.ReadString('RCON','password','');
+//    enableRconCheck.Checked := appINI.ReadBool('RCON','enabled',True);
+//    rconPass.Enabled := enableRconCheck.Checked;
+//    rconPass.Text := appINI.ReadString('RCON','password','');
     //maps scan
     scanMaps();
     //game settings
@@ -232,14 +227,19 @@ begin
   arguments := arguments + '-port ' + port.Text + ' +sv_password ' + password.Text + ' ';
   arguments := arguments + '+bot_quota ' + bots.Text + ' +bot_difficulty ' + IntToStr(botsSkill.ItemIndex) + ' ';
 
-  if enableRconCheck.Checked then
-  begin
-    arguments := arguments + '+rcon_password ' + rconPass.Text + ' ';
+//  if enableRconCheck.Checked then
+//  begin
+//    arguments := arguments + '+rcon_password ' + rconPass.Text + ' ';
+//  end;
+
+  arguments := arguments + '+sv_lan ' + IntToStr(StrToInt(BoolToStr(lanOnly.Checked))*-1);
+
+  case tickRateBox.ItemIndex of
+    0: arguments := arguments + ' -tickrate 32 ';
+    1: arguments := arguments + ' -tickrate 64 ';
+    2: arguments := arguments + ' -tickrate 128 ';
   end;
-
-  arguments := arguments + '+sv_lan ' + IntToStr(StrToInt(BoolToStr(lanOnly.Checked))*-1) + ' -tickrate 128';
-
-  //ShowMessage(arguments);
+  ShowMessage(arguments);
 
   ShellExecute(0, nil, PChar(SERVERPATH + '\\srcds.exe'), PChar(arguments), nil, SW_SHOWNORMAL);
 end;

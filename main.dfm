@@ -5,7 +5,7 @@ object mainForm: TmainForm
   BorderStyle = bsSingle
   Caption = 'EasyDS'
   ClientHeight = 432
-  ClientWidth = 312
+  ClientWidth = 311
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,6 +17,9 @@ object mainForm: TmainForm
   Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  DesignSize = (
+    311
+    432)
   PixelsPerInch = 96
   TextHeight = 13
   object creatorUrl: TLabel
@@ -25,6 +28,7 @@ object mainForm: TmainForm
     Width = 99
     Height = 13
     Cursor = crHandPoint
+    Anchors = [akLeft, akBottom]
     Caption = 'EasyDS by dmitlenko'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
@@ -33,6 +37,7 @@ object mainForm: TmainForm
     Font.Style = [fsUnderline]
     ParentFont = False
     OnClick = creatorUrlClick
+    ExplicitTop = 459
   end
   object portLabel: TLabel
     Left = 8
@@ -56,31 +61,45 @@ object mainForm: TmainForm
     Caption = 'Server name:'
   end
   object version: TLabel
-    Left = 247
+    Left = 246
     Top = 411
     Width = 57
     Height = 13
+    Alignment = taRightJustify
+    Anchors = [akRight, akBottom]
     BiDiMode = bdLeftToRight
     Caption = 'alpha v0.01'
     ParentBiDiMode = False
+    ExplicitTop = 459
+  end
+  object tickRateLabel: TLabel
+    Left = 8
+    Top = 95
+    Width = 42
+    Height = 13
+    Caption = 'Tickrate:'
   end
   object startButton: TButton
     Left = 159
     Top = 372
-    Width = 145
+    Width = 144
     Height = 33
+    Anchors = [akRight, akBottom]
     Caption = 'Start'
     TabOrder = 0
     OnClick = startButtonClick
+    ExplicitTop = 420
   end
   object openServerFolderButton: TButton
     Left = 8
     Top = 372
-    Width = 147
+    Width = 145
     Height = 33
+    Anchors = [akLeft, akBottom]
     Caption = 'Open Folder'
     TabOrder = 1
     OnClick = openServerFolderButtonClick
+    ExplicitTop = 420
   end
   object port: TEdit
     Left = 8
@@ -111,24 +130,6 @@ object mainForm: TmainForm
     Text = 'Counter-Strike Server'
     TextHint = 'Server name'
   end
-  object enableRconCheck: TCheckBox
-    Left = 8
-    Top = 93
-    Width = 97
-    Height = 17
-    Caption = 'Enable RCON'
-    TabOrder = 5
-    OnClick = enableRconCheckClick
-  end
-  object rconPass: TEdit
-    Left = 8
-    Top = 116
-    Width = 296
-    Height = 21
-    Enabled = False
-    TabOrder = 6
-    TextHint = 'RCON Password'
-  end
   object lanOnly: TCheckBox
     Left = 159
     Top = 70
@@ -137,15 +138,15 @@ object mainForm: TmainForm
     Caption = 'LAN Only'
     Checked = True
     State = cbChecked
-    TabOrder = 7
+    TabOrder = 5
   end
   object gameSettings: TGroupBox
     Left = 8
-    Top = 143
+    Top = 141
     Width = 296
-    Height = 223
+    Height = 225
     Caption = 'Game settings'
-    TabOrder = 8
+    TabOrder = 6
     object mapLabel: TLabel
       Left = 12
       Top = 25
@@ -243,6 +244,20 @@ object mainForm: TmainForm
         'Hard'
         'Expert')
     end
+  end
+  object tickRateBox: TComboBox
+    Left = 8
+    Top = 114
+    Width = 296
+    Height = 21
+    Style = csDropDownList
+    ItemIndex = 0
+    TabOrder = 7
+    Text = '32'
+    Items.Strings = (
+      '32'
+      '64'
+      '128')
   end
   object mainMenu: TMainMenu
     Left = 280
