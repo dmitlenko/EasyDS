@@ -223,8 +223,8 @@ begin
   end;
 
   arguments := arguments + '+mapgroup mg_' + mapBox.Items[mapBox.ItemIndex] + ' +map ' + mapBox.Items[mapBox.ItemIndex] + ' ';
-  arguments := arguments + '+hostname ' + serverName.Text + ' -maxplayers_override ' + maxPlayers.Text + ' ';
-  arguments := arguments + '-port ' + port.Text + ' +sv_password ' + password.Text + ' ';
+  arguments := arguments + '+hostname "' + serverName.Text + '" -maxplayers_override ' + maxPlayers.Text + ' ';
+  arguments := arguments + '-port ' + port.Text + ' +sv_password "' + password.Text + '" ';
   arguments := arguments + '+bot_quota ' + bots.Text + ' +bot_difficulty ' + IntToStr(botsSkill.ItemIndex) + ' ';
 
 //  if enableRconCheck.Checked then
