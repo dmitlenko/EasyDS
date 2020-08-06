@@ -68,9 +68,8 @@ object mainForm: TmainForm
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
     BiDiMode = bdLeftToRight
-    Caption = 'alpha v0.01'
+    Caption = 'alpha v0.02'
     ParentBiDiMode = False
-    ExplicitTop = 459
   end
   object tickRateLabel: TLabel
     Left = 8
