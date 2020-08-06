@@ -217,7 +217,7 @@ begin
   case gamemodeBox.ItemIndex of
     0: arguments := arguments + '+game_type 0 +game_mode 0 ';
     1: arguments := arguments + '+game_type 0 +game_mode 1 ';
-    2: arguments := arguments + '+game_type 0 +game_mode 2 ';                                               `
+    2: arguments := arguments + '+game_type 0 +game_mode 2 ';
     3: arguments := arguments + '+game_type 1 +game_mode 0 ';
     4: arguments := arguments + '+game_type 1 +game_mode 1 ';
     5: arguments := arguments + '+game_type 1 +game_mode 2 ';
