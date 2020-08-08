@@ -4,8 +4,8 @@ object mainForm: TmainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'EasyDS'
-  ClientHeight = 432
-  ClientWidth = 311
+  ClientHeight = 368
+  ClientWidth = 624
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,13 +18,13 @@ object mainForm: TmainForm
   OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
-    311
-    432)
+    624
+    368)
   PixelsPerInch = 96
   TextHeight = 13
   object creatorUrl: TLabel
     Left = 8
-    Top = 411
+    Top = 347
     Width = 99
     Height = 13
     Cursor = crHandPoint
@@ -61,44 +61,37 @@ object mainForm: TmainForm
     Caption = 'Server name:'
   end
   object version: TLabel
-    Left = 246
-    Top = 411
-    Width = 57
+    Left = 584
+    Top = 347
+    Width = 32
     Height = 13
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
     BiDiMode = bdLeftToRight
-    Caption = 'alpha v0.02'
+    Caption = 'v0.1.0'
     ParentBiDiMode = False
   end
-  object tickRateLabel: TLabel
-    Left = 8
-    Top = 95
-    Width = 42
-    Height = 13
-    Caption = 'Tickrate:'
-  end
   object startButton: TButton
-    Left = 159
-    Top = 372
+    Left = 472
+    Top = 308
     Width = 144
     Height = 33
     Anchors = [akRight, akBottom]
     Caption = 'Start'
     TabOrder = 0
     OnClick = startButtonClick
-    ExplicitTop = 420
+    ExplicitTop = 372
   end
   object openServerFolderButton: TButton
     Left = 8
-    Top = 372
+    Top = 308
     Width = 145
     Height = 33
     Anchors = [akLeft, akBottom]
     Caption = 'Open Folder'
     TabOrder = 1
     OnClick = openServerFolderButtonClick
-    ExplicitTop = 420
+    ExplicitTop = 372
   end
   object port: TEdit
     Left = 8
@@ -140,10 +133,10 @@ object mainForm: TmainForm
     TabOrder = 5
   end
   object gameSettings: TGroupBox
-    Left = 8
-    Top = 141
+    Left = 320
+    Top = 8
     Width = 296
-    Height = 225
+    Height = 289
     Caption = 'Game settings'
     TabOrder = 6
     object mapLabel: TLabel
@@ -155,31 +148,38 @@ object mainForm: TmainForm
     end
     object gamemodeLabel: TLabel
       Left = 12
-      Top = 71
+      Top = 143
       Width = 57
       Height = 13
       Caption = 'Gamemode:'
     end
     object maxPlayersLabel: TLabel
       Left = 12
-      Top = 117
+      Top = 189
       Width = 62
       Height = 13
       Caption = 'Max players:'
     end
     object botsLabel: TLabel
       Left = 12
-      Top = 163
+      Top = 235
       Width = 25
       Height = 13
       Caption = 'Bots:'
     end
     object botsSkillLabel: TLabel
       Left = 151
-      Top = 163
+      Top = 235
       Width = 44
       Height = 13
       Caption = 'Bots skill:'
+    end
+    object mapgroupcaption: TLabel
+      Left = 12
+      Top = 97
+      Width = 52
+      Height = 13
+      Caption = 'Mapgroup:'
     end
     object mapBox: TComboBox
       Left = 12
@@ -189,13 +189,48 @@ object mainForm: TmainForm
       Style = csDropDownList
       TabOrder = 0
     end
+    object maxPlayers: TEdit
+      Left = 12
+      Top = 208
+      Width = 272
+      Height = 21
+      NumbersOnly = True
+      TabOrder = 1
+      Text = '16'
+      TextHint = 'Max players'
+    end
+    object bots: TEdit
+      Left = 12
+      Top = 254
+      Width = 133
+      Height = 21
+      NumbersOnly = True
+      TabOrder = 2
+      Text = '0'
+      TextHint = 'Bots'
+    end
+    object botsSkill: TComboBox
+      Left = 151
+      Top = 254
+      Width = 133
+      Height = 21
+      Style = csDropDownList
+      ItemIndex = 0
+      TabOrder = 3
+      Text = 'Easy'
+      Items.Strings = (
+        'Easy'
+        'Normal'
+        'Hard'
+        'Expert')
+    end
     object gamemodeBox: TComboBox
       Left = 12
-      Top = 90
+      Top = 162
       Width = 272
       Height = 21
       Style = csDropDownList
-      TabOrder = 1
+      TabOrder = 4
       Items.Strings = (
         'Casual'
         'Competitive'
@@ -208,55 +243,93 @@ object mainForm: TmainForm
         'Co-op Strike'
         'Danger Zone')
     end
-    object maxPlayers: TEdit
+    object onlyThisMapCheck: TCheckBox
       Left = 12
-      Top = 136
+      Top = 71
+      Width = 133
+      Height = 17
+      Caption = 'Only this map'
+      Checked = True
+      State = cbChecked
+      TabOrder = 5
+      OnClick = onlyThisMapCheckClick
+    end
+    object mapgroupBox: TComboBox
+      Left = 12
+      Top = 116
       Width = 272
       Height = 21
-      NumbersOnly = True
-      TabOrder = 2
-      Text = '16'
-      TextHint = 'Max players'
+      Style = csDropDownList
+      Enabled = False
+      TabOrder = 6
+      Items.Strings = (
+        'Bomb maps'
+        'Hostage maps'
+        'Both de_dust maps'
+        'Demolition'
+        'Arms Race'
+        'Random')
     end
-    object bots: TEdit
+  end
+  object miscGroup: TGroupBox
+    Left = 8
+    Top = 95
+    Width = 296
+    Height = 202
+    Caption = 'Misc'
+    TabOrder = 7
+    object tickRateLabel: TLabel
       Left = 12
-      Top = 182
-      Width = 133
-      Height = 21
-      NumbersOnly = True
-      TabOrder = 3
-      Text = '0'
-      TextHint = 'Bots'
+      Top = 25
+      Width = 42
+      Height = 13
+      Caption = 'Tickrate:'
     end
-    object botsSkill: TComboBox
-      Left = 151
-      Top = 182
-      Width = 133
+    object customArgumentsLabel: TLabel
+      Left = 12
+      Top = 149
+      Width = 94
+      Height = 13
+      Caption = 'Custom arguments:'
+    end
+    object tickRateBox: TComboBox
+      Left = 12
+      Top = 44
+      Width = 272
       Height = 21
       Style = csDropDownList
       ItemIndex = 0
-      TabOrder = 4
-      Text = 'Easy'
+      TabOrder = 0
+      Text = '32'
       Items.Strings = (
-        'Easy'
-        'Normal'
-        'Hard'
-        'Expert')
+        '32'
+        '64'
+        '128')
     end
-  end
-  object tickRateBox: TComboBox
-    Left = 8
-    Top = 114
-    Width = 296
-    Height = 21
-    Style = csDropDownList
-    ItemIndex = 0
-    TabOrder = 7
-    Text = '32'
-    Items.Strings = (
-      '32'
-      '64'
-      '128')
+    object cheatsCheck: TCheckBox
+      Left = 12
+      Top = 71
+      Width = 97
+      Height = 17
+      Caption = 'Enable cheats'
+      TabOrder = 1
+    end
+    object customArgs: TEdit
+      Left = 12
+      Top = 168
+      Width = 272
+      Height = 21
+      TabOrder = 2
+      TextHint = 'Custom arguments'
+    end
+    object friendlyFireCheck: TCheckBox
+      Left = 12
+      Top = 94
+      Width = 97
+      Height = 17
+      Caption = 'Friendly fire'
+      TabOrder = 3
+    end
   end
   object mainMenu: TMainMenu
     Left = 280
