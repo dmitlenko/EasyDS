@@ -40,11 +40,11 @@ object aboutForm: TaboutForm
     Caption = 'by dmitlenko'
   end
   object version: TLabel
-    Left = 231
+    Left = 256
     Top = 107
-    Width = 57
+    Width = 32
     Height = 13
-    Caption = 'alpha v0.02'
+    Caption = 'v0.1.0'
   end
   object creatorUrl: TLabel
     Left = 8
