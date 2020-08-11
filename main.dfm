@@ -68,7 +68,7 @@ object mainForm: TmainForm
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
     BiDiMode = bdLeftToRight
-    Caption = 'v0.1.0'
+    Caption = 'v0.1.1'
     ParentBiDiMode = False
   end
   object startButton: TButton
@@ -80,7 +80,6 @@ object mainForm: TmainForm
     Caption = 'Start'
     TabOrder = 0
     OnClick = startButtonClick
-    ExplicitTop = 372
   end
   object openServerFolderButton: TButton
     Left = 8
@@ -91,7 +90,6 @@ object mainForm: TmainForm
     Caption = 'Open Folder'
     TabOrder = 1
     OnClick = openServerFolderButtonClick
-    ExplicitTop = 372
   end
   object port: TEdit
     Left = 8

@@ -244,7 +244,7 @@ begin
 
   if onlyThisMapCheck.Checked then
   begin
-    arguments := arguments + '+mapgroup mg_' + mapBox.Items[mapBox.ItemIndex];
+    arguments := arguments + '+mapgroup mg_' + mapBox.Items[mapBox.ItemIndex] + ' ';
   end
   else
   begin

@@ -44,7 +44,7 @@ object aboutForm: TaboutForm
     Top = 107
     Width = 32
     Height = 13
-    Caption = 'v0.1.0'
+    Caption = 'v0.1.1'
   end
   object creatorUrl: TLabel
     Left = 8

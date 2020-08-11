@@ -181,10 +181,9 @@
                 </RDP_Source_Files>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="easy_ds.png" Configuration="Release" Class="UWP_DelphiLogo44">
+                <DeployFile LocalName="Win64\Debug\easyds.rsm" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win64">
-                        <RemoteDir>Assets\</RemoteDir>
-                        <RemoteName>Logo44x44.png</RemoteName>
+                        <RemoteName>easyds.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -200,9 +199,10 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win64\Debug\easyds.rsm" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName="easy_ds.png" Configuration="Release" Class="UWP_DelphiLogo44">
                     <Platform Name="Win64">
-                        <RemoteName>easyds.rsm</RemoteName>
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo44x44.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
