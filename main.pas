@@ -265,7 +265,15 @@ begin
   if not(trim(password.Text) = '') then arguments := arguments + '+sv_password "' + password.Text + '" ';
 
   arguments := arguments + '+bot_quota ' + bots.Text + ' +bot_difficulty ' + IntToStr(botsSkill.ItemIndex) + ' ';
-  arguments := arguments + '+sv_lan ' + IntToStr(StrToInt(BoolToStr(lanOnly.Checked))*-1);
+
+  if lanOnly.Checked then
+  begin
+     arguments := arguments + '+sv_lan 1';
+  end
+  else
+  begin
+     arguments := arguments + '+ip 0.0.0.0';
+  end;
 
   case tickRateBox.ItemIndex of
     0: arguments := arguments + ' -tickrate 32 ';
@@ -279,13 +287,13 @@ begin
   end
   else
   begin
-    arguments := arguments + '+mp_friendlyfire 1 ';
+    arguments := arguments + '+mp_friendlyfire 0 ';
   end;
   if cheatsCheck.Checked then arguments := arguments + '+sv_cheats 1 ';
 
   arguments := arguments + customArgs.Text;
 
-  ShowMessage(arguments);
+  //ShowMessage(arguments);
   ShellExecute(0, nil, PChar(SERVERPATH + '\\srcds.exe'), PChar(arguments), nil, SW_SHOWNORMAL);
 end;
 

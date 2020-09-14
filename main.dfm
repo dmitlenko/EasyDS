@@ -68,7 +68,7 @@ object mainForm: TmainForm
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
     BiDiMode = bdLeftToRight
-    Caption = 'v0.1.1'
+    Caption = 'v0.1.2'
     ParentBiDiMode = False
   end
   object startButton: TButton
