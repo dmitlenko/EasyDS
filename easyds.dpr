@@ -16,6 +16,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Onyx Blue');
   Application.Title := 'EasyDS';
   Application.CreateForm(TmainForm, mainForm);
   Application.CreateForm(TaboutForm, aboutForm);
